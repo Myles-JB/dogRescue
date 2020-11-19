@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+import { take } from 'rxjs/operators';
 import { DogService } from 'src/app/dog.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class BreedMainComponent implements OnInit {
 
   ngOnInit(): void {
     this.breedName = this.route.snapshot.paramMap.get('breedName');
-    this.dogService.getDogBreed(this.breedName).subscribe(val => {
+    this.dogService.getDogBreed(this.breedName).pipe(take(1)).subscribe(val => {
       this.breedImages = val;
     });
   }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -24,6 +24,8 @@ export class DogService {
   }
 
   getDogBreed(breed: string) {
-    return this.http.get('https://dog.ceo/api/breed/' + breed + '/images').pipe(map((val: any) => val.message));
+    return this.http
+      .get('https://dog.ceo/api/breed/' + breed + '/images')
+      .pipe(map((val: any) => val.message));
   }
 }
