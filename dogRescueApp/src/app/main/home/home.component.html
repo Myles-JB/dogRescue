@@ -1,0 +1,21 @@
+
+<div>
+  <div class="container">
+    <div class="row">
+      <div class = "col">
+        <div class = "row">
+          <input type="search" class="form-control" id="searchBreed" placeholder="Search for a Dog Breed"  [(ngModel)]="dogSearch">
+        </div>
+        <div class = "row">
+          <div class = "col nopadding" *ngFor="let breed of listOfBreeds | searchFilter: dogSearch ">
+            <app-breed-button [breed]="breed"></app-breed-button>
+          </div>
+        </div>
+
+    </div>
+      <div class = "col">
+        <img class="img-thumbnail" [src]="randomDog" />
+      </div>
+    </div>
+    </div>
+</div>
